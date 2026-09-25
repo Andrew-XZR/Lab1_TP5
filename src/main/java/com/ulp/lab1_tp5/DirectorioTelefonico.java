@@ -1,5 +1,6 @@
 package com.ulp.lab1_tp5;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -38,5 +39,15 @@ public class DirectorioTelefonico {
             }
         }
         return telefonos;
+    }
+    
+    public ArrayList<Contacto> buscarContactos(String ciudad) {
+        ArrayList<Contacto> resultado = new ArrayList<>();
+        for (Contacto c : contactos.values()) {
+            if (c.getCiudad().equalsIgnoreCase(ciudad)) {
+                resultado.add(c);
+            }
+        }
+        return resultado;
     }
 }

@@ -7,9 +7,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class DirectorioTelefonico {
-
-    public static void main(String[] args) {
-        private final TreeMap<Long, Contacto> contactos;
+    private final TreeMap<Long, Contacto> contactos;
 
     public DirectorioTelefonico() {
         this.contactos = new TreeMap<>();
@@ -49,5 +47,9 @@ public class DirectorioTelefonico {
             }
         }
         return resultado;
+    }
+    
+    public void borrarContacto(Long telefono){
+        contactos.remove(telefono);
     }
 }

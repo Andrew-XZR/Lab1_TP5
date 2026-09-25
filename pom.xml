@@ -8,6 +8,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>26</maven.compiler.release>
-        <exec.mainClass>com.ulp.lab1_tp5.Lab1_TP5</exec.mainClass>
+        <exec.mainClass>com.ulp.lab1_tp5.DirectorioTelefonico</exec.mainClass>
     </properties>
 </project>

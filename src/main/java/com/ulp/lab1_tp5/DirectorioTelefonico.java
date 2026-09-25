@@ -1,6 +1,9 @@
 package com.ulp.lab1_tp5;
 
+import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class DirectorioTelefonico {
 
@@ -25,5 +28,15 @@ public class DirectorioTelefonico {
     
     public Contacto buscarContacto(Long telefono) {
         return contactos.get(telefono);
+    }
+    
+    public Set<Long> buscarTelefono(String apellido) {
+        Set<Long> telefonos = new TreeSet<>();
+        for (Map.Entry<Long, Contacto> entry : contactos.entrySet()) {
+            if (entry.getValue().getApellido().equalsIgnoreCase(apellido)) {
+                telefonos.add(entry.getKey());
+            }
+        }
+        return telefonos;
     }
 }

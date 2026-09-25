@@ -5,7 +5,7 @@ import java.util.TreeMap;
 public class DirectorioTelefonico {
 
     public static void main(String[] args) {
-        private TreeMap<Long, Contacto> contactos;
+        private final TreeMap<Long, Contacto> contactos;
 
     public DirectorioTelefonico() {
         this.contactos = new TreeMap<>();
@@ -21,5 +21,9 @@ public class DirectorioTelefonico {
         }
         
         contactos.put(telefono, contacto);
+    }
+    
+    public Contacto buscarContacto(Long telefono) {
+        return contactos.get(telefono);
     }
 }

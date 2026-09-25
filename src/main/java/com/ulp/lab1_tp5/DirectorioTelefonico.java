@@ -52,4 +52,10 @@ public class DirectorioTelefonico {
     public void borrarContacto(Long telefono){
         contactos.remove(telefono);
     }
+    
+    public void mostrarDirectorio() {
+        System.out.println("*** DIRECTORIO TELEFÓNICO ***");
+        contactos.forEach((tel, c) ->
+            System.out.println(tel + " -> " + c));
+    }
 }

@@ -10,6 +10,7 @@ public class JFDirectorio extends javax.swing.JFrame {
     public static DirectorioTelefonico directorio = new DirectorioTelefonico();
     public static Set<String> ciudades = new TreeSet<>(Arrays.asList(
         "San Luis", "Villa Mercedes", "Juana Koslay", "El Volcán"));
+    
     /**
      * Creates new form Directorio
      */
@@ -29,7 +30,7 @@ public class JFDirectorio extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMClientes = new javax.swing.JMenu();
-        jMIAgregar = new javax.swing.JMenuItem();
+        jMIAgregarCliente = new javax.swing.JMenuItem();
         jMIBuscar = new javax.swing.JMenuItem();
         jMIBorrarCliente = new javax.swing.JMenuItem();
         jMDirectorio = new javax.swing.JMenu();
@@ -56,10 +57,10 @@ public class JFDirectorio extends javax.swing.JFrame {
 
         jMClientes.setText("Clientes");
 
-        jMIAgregar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMIAgregar.setText("Agregar Cliente");
-        jMIAgregar.addActionListener(this::jMIAgregarActionPerformed);
-        jMClientes.add(jMIAgregar);
+        jMIAgregarCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMIAgregarCliente.setText("Agregar Cliente");
+        jMIAgregarCliente.addActionListener(this::jMIAgregarClienteActionPerformed);
+        jMClientes.add(jMIAgregarCliente);
 
         jMIBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMIBuscar.setText("Buscar Cliente");
@@ -110,21 +111,34 @@ public class JFDirectorio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMIAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAgregarActionPerformed
+    private void jMIAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAgregarClienteActionPerformed
+        for (javax.swing.JInternalFrame frame : jDesktopPane1.getAllFrames()) {
+            frame.dispose();
+        }
+        
         jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
-        AgregarClienteView acv = new AgregarClienteView();
-        acv.setVisible(true);
-        jDesktopPane1.add(acv);
-        jDesktopPane1.moveToFront(acv);
-    }//GEN-LAST:event_jMIAgregarActionPerformed
+        AgregarClienteView agregarCliente = new AgregarClienteView();
+        agregarCliente.setVisible(true);
+        jDesktopPane1.add(agregarCliente);
+        jDesktopPane1.moveToFront(agregarCliente);
+    }//GEN-LAST:event_jMIAgregarClienteActionPerformed
 
     private void jMIBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMIBuscarActionPerformed
 
     private void jMIAgregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAgregarCiudadActionPerformed
-        // TODO add your handling code here:
+        for (javax.swing.JInternalFrame frame : jDesktopPane1.getAllFrames()) {
+            frame.dispose();
+        }
+        
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        AgregarCiudadView agregarCiudad = new AgregarCiudadView();
+        agregarCiudad.setVisible(true);
+        jDesktopPane1.add(agregarCiudad);
+        jDesktopPane1.moveToFront(agregarCiudad);
     }//GEN-LAST:event_jMIAgregarCiudadActionPerformed
 
     private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
@@ -161,8 +175,8 @@ public class JFDirectorio extends javax.swing.JFrame {
     private javax.swing.JMenu jMCiudades;
     private javax.swing.JMenu jMClientes;
     private javax.swing.JMenu jMDirectorio;
-    private javax.swing.JMenuItem jMIAgregar;
     private javax.swing.JMenuItem jMIAgregarCiudad;
+    private javax.swing.JMenuItem jMIAgregarCliente;
     private javax.swing.JMenuItem jMIBorrarCliente;
     private javax.swing.JMenuItem jMIBuscar;
     private javax.swing.JMenuItem jMIBuscarPorApellido;

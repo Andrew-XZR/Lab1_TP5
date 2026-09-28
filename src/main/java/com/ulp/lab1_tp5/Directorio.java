@@ -1,17 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.ulp.lab1_tp5;
 
-/**
- *
- * @author andrew
- */
+import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
+
 public class Directorio extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Directorio.class.getName());
-
+    public static DirectorioTelefonico directorio = new DirectorioTelefonico();
+    public static Set<String> ciudades = new TreeSet<>(Arrays.asList(
+        "San Luis", "Villa Mercedes", "Juana Koslay", "El Volcán"));
     /**
      * Creates new form Directorio
      */
@@ -33,7 +31,7 @@ public class Directorio extends javax.swing.JFrame {
         jMClientes = new javax.swing.JMenu();
         jMIAgregar = new javax.swing.JMenuItem();
         jMIBuscar = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMIBorrarCliente = new javax.swing.JMenuItem();
         jMDirectorio = new javax.swing.JMenu();
         jMIBuscarPorCiudad = new javax.swing.JMenuItem();
         jMIBuscarPorApellido = new javax.swing.JMenuItem();
@@ -43,15 +41,17 @@ public class Directorio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jDesktopPane1.setPreferredSize(new java.awt.Dimension(800, 600));
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 276, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
 
         jMClientes.setText("Clientes");
@@ -66,9 +66,9 @@ public class Directorio extends javax.swing.JFrame {
         jMIBuscar.addActionListener(this::jMIBuscarActionPerformed);
         jMClientes.add(jMIBuscar);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Borrar Cliente");
-        jMClientes.add(jMenuItem1);
+        jMIBorrarCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMIBorrarCliente.setText("Borrar Cliente");
+        jMClientes.add(jMIBorrarCliente);
 
         jMenuBar1.add(jMClientes);
 
@@ -99,18 +99,23 @@ public class Directorio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMIAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAgregarActionPerformed
-        // TODO add your handling code here:
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        AgregarClienteView acv = new AgregarClienteView();
+        acv.setVisible(true);
+        jDesktopPane1.add(acv);
+        jDesktopPane1.moveToFront(acv);
     }//GEN-LAST:event_jMIAgregarActionPerformed
 
     private void jMIBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarActionPerformed
@@ -153,11 +158,11 @@ public class Directorio extends javax.swing.JFrame {
     private javax.swing.JMenu jMDirectorio;
     private javax.swing.JMenuItem jMIAgregar;
     private javax.swing.JMenuItem jMIAgregarCiudad;
+    private javax.swing.JMenuItem jMIBorrarCliente;
     private javax.swing.JMenuItem jMIBuscar;
     private javax.swing.JMenuItem jMIBuscarPorApellido;
     private javax.swing.JMenuItem jMIBuscarPorCiudad;
     private javax.swing.JMenu jMSalir;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

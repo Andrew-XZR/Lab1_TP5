@@ -13,16 +13,22 @@ public class DirectorioTelefonico {
         this.contactos = new TreeMap<>();
     }
     
-    public void agregarContacto(Long telefono, Contacto contacto) {
+    public boolean agregarContacto(Long telefono, Contacto contacto) {
         if ( telefono == null && contacto == null)
             throw new IllegalArgumentException("Teléfono y contacto no pueden ser nulos");
         
         if (contactos.containsKey(telefono)) {
-            System.out.println("Ya existe un contacto con el teléfono " + telefono);
-            return;
+            System.out.println("Ya existe un contacto con el teléfono " + telefono + ".");
+            return false;
         }
         
+        if(contactos.containsValue(contacto)) {
+            System.out.println("Ya existe un contacto en el directorio.");
+            return false;
+        } 
+        
         contactos.put(telefono, contacto);
+        return true;
     }
     
     public Contacto buscarContacto(Long telefono) {

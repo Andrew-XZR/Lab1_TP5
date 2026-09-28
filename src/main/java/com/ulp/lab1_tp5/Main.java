@@ -13,13 +13,13 @@ public class Main {
         // ---- Prueba A: agregarContacto ----
         System.out.println("--- A. Agregando contactos ---");
         directorio.agregarContacto(1122334455L,
-            new Contacto("30111222", "Juan", "Pérez", "San Luis", "Av. Corrientes 123"));
+            new Contacto(30111222, "Juan", "Pérez", "San Luis", "Av. Corrientes 123"));
         directorio.agregarContacto(1155667788L,
-            new Contacto("28999888", "María", "Gómez", "Córdoba", "San Martín 456"));
+            new Contacto(28999888, "María", "Gómez", "Córdoba", "San Martín 456"));
         directorio.agregarContacto(1144556677L,
-            new Contacto("27444555", "Pedro", "Pérez", "Rosario", "Mitre 789"));
+            new Contacto(27444555, "Pedro", "Pérez", "Rosario", "Mitre 789"));
         directorio.agregarContacto(1133445566L,
-            new Contacto("31222333", "Lucía", "Fernández", "Buenos Aires", "Belgrano 321"));
+            new Contacto(31222333, "Lucía", "Fernández", "Buenos Aires", "Belgrano 321"));
 
         directorio.mostrarDirectorio();
 

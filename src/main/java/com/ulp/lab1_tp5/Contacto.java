@@ -7,8 +7,8 @@ public class Contacto {
     private String ciudad;
     private String direccion;
 
-    public Contacto(String dni, String nombre, String apellido, String ciudad, String direccion) {
-        this.dni = dni;
+    public Contacto(int dni, String nombre, String apellido, String ciudad, String direccion) {
+        this.dni = dni + "";
         this.nombre = nombre;
         this.apellido = apellido;
         this.ciudad = ciudad;

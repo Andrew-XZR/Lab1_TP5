@@ -4,16 +4,16 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Directorio extends javax.swing.JFrame {
+public class JFDirectorio extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Directorio.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JFDirectorio.class.getName());
     public static DirectorioTelefonico directorio = new DirectorioTelefonico();
     public static Set<String> ciudades = new TreeSet<>(Arrays.asList(
         "San Luis", "Villa Mercedes", "Juana Koslay", "El Volcán"));
     /**
      * Creates new form Directorio
      */
-    public Directorio() {
+    public JFDirectorio() {
         initComponents();
     }
 
@@ -91,6 +91,7 @@ public class Directorio extends javax.swing.JFrame {
         jMenuBar1.add(jMCiudades);
 
         jMSalir.setText("Salir");
+        jMSalir.addActionListener(this::jMSalirActionPerformed);
         jMenuBar1.add(jMSalir);
 
         setJMenuBar(jMenuBar1);
@@ -126,6 +127,10 @@ public class Directorio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMIAgregarCiudadActionPerformed
 
+    private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,7 +153,7 @@ public class Directorio extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Directorio().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new JFDirectorio().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

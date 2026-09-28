@@ -188,7 +188,7 @@ public class AgregarClienteView extends javax.swing.JInternalFrame {
 
     private void llenarComboCiudad() {
         jCBSeleccionarCiudad.removeAllItems();
-        for (String c : Directorio.ciudades)
+        for (String c : JFDirectorio.ciudades)
             jCBSeleccionarCiudad.addItem(c);
     }
     
@@ -226,7 +226,7 @@ public class AgregarClienteView extends javax.swing.JInternalFrame {
         
         try {
             Long telefono = Long.valueOf(jTFTelefono.getText());
-            if(Directorio.directorio.agregarContacto(telefono, contacto)) {
+            if(JFDirectorio.directorio.agregarContacto(telefono, contacto)) {
                 JOptionPane.showMessageDialog(this, "Se agrego correctamente el cliente al directorio");
                 vaciarCampos();
             } else 
